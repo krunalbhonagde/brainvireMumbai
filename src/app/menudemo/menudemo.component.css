@@ -1,0 +1,30 @@
+  
+  body{
+     padding:0px;
+     margin:0px;
+  }
+#main {
+    border-spacing: 1px;
+}
+#header{
+    background-color: lightgray;
+    display:inline-block;
+    padding:0px;
+    margin:0px;
+}
+#sidebar-left{
+    display:inline-block;
+    padding:0px;
+    margin:0px;
+    background-color: lightgray;
+    height: 600px;
+    padding-left: 60px;
+    padding-top: 40px;
+    
+}
+#main{
+    
+    background-color: white;
+    
+}
+

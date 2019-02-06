@@ -1,0 +1,73 @@
+
+      <div class="container">
+          <div class="row">
+            <!-- start sidebar menu -->
+            <div class="col-xs-2" id="sidebar-left">
+                
+                <label>                  
+                  <a href="#" style="text-decoration: none"><i class="glyphicon glyphicon-star-empty"></i> <span> User</span></a>
+                    </label><br>
+                <label>
+                  <a href="#" style="text-decoration: none"><i class="glyphicon glyphicon-info-sign"></i> <span> Post</span></a>
+                </label><br>
+                <label>
+                  <a href="#" style="text-decoration: none"><i class="glyphicon glyphicon-star-empty"></i> <span> Delete</span></a>
+                </label>
+            </div>
+            <!-- start main menu -->
+            <div class="col-xs-10 box-body no-padding">
+              <table class="table table-striped">
+                <tr>
+                  <th style="width: 10px"></th>
+                  <th>Name</th>
+                  <th>Subject</th>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Update software</td>
+                  <td mat-icon-button [matMenuTriggerFor]="rootMenu">
+                    <div>
+                      <label>That’s it. Run the app and you should see bootstrap 4 styles applied to the angular app</label>
+                    </div>
+                    <div>
+                      <label *ngFor="let tag of tagIdS" class= "btn btn-primary btn-sm">{{tag}}</label>
+                    </div>
+                  </td>
+                <!-- </button> -->
+                </tr>
+              </table>
+            </div>
+      
+            
+          </div>
+        </div>	
+      
+  
+      
+      
+  
+  
+  <mat-menu #rootMenu="matMenu">
+    <button mat-menu-item>Mark as Read</button>
+    <button mat-menu-item>Follow up</button>
+    <button mat-menu-item [matMenuTriggerFor]="subMenu1">Categorize</button>
+    <button mat-menu-item [matMenuTriggerFor]="subMenu2">Suites</button>
+    <button mat-menu-item [matMenuTriggerFor]="subMenu3">Leads</button>
+    <button mat-menu-item>Move</button>
+    <button mat-menu-item>Delete</button>
+  </mat-menu>
+  
+  <mat-menu #subMenu1="matMenu">
+    <button mat-menu-item>Add Categorize Tag</button>
+  </mat-menu>
+  <mat-menu #subMenu2="matMenu">
+    <button mat-menu-item (click)="openModal(custom-modal-1)">Add Suites Tag</button>
+  </mat-menu>
+  <mat-menu #subMenu3="matMenu">
+    <button mat-menu-item>Add Leads Tag</button>
+  </mat-menu>
+  
+  <jw-modal id="custom-modal-1">
+      <app-modal-data-component (getTag)="updateTag($event)"></app-modal-data-component>
+      <button class="btn btn-primary"style="margin-left: 500px;" (click)="closeModal('custom-modal-1');">Save</button>
+  </jw-modal>

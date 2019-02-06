@@ -1,0 +1,32 @@
+<div class="box box-info">
+  <div class="box box-success">
+    <div class="box-header with-border">
+      <h3 class="box-title">Add Suite Tag</h3>
+    </div>
+  </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form class="form-horizontal" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" >
+      <div class="box-body">
+        <div class="form-group">
+          <label for="" class="col-sm-2 control-label">Search Suite</label>
+
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" [(ngModel)]="serachTagItem" name="serachTagItem" placeholder="Email">
+          </div>
+        </div>
+        <tbody>
+            <tr *ngFor="let user of userList | searchTag: 'tag': serachTagItem">
+                <td>
+                    <input *ngIf="serachTagItem" type="radio" name="radiogroup" 
+                    [value]="user.tag"
+                    (change)="onSelectionChange(user.tag)"
+                    >
+                </td>
+                <td *ngIf="serachTagItem">{{user.tag}}</td>
+            </tr>
+          </tbody>
+      </div>
+    </form>
+    <!-- form end -->
+  </div>
